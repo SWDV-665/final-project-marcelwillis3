@@ -15,20 +15,25 @@ export class InputDialogServiceProvider {
     console.log('Hello InputDialogServiceProvider Provider');
   }
 
-  showPrompt(item?, index?){
+  showPrompt(component?, index?){
     const prompt = this.alertCtrl.create({
-      title: item ? 'Edit Item' : 'Add Item',
-      message: item ? 'Edit item in list' : 'Add item to list',
+      title: component ? 'Edit Component' : 'Add Component',
+      message: component ? 'Edit component in list' : 'Add component to list',
       inputs: [
         {
           name: 'name',
           placeholder: 'Name',
-          value: item ? item.name : null
+          value: component ? component.name : null
         },
         {
-          name: 'quantity',
-          placeholder: 'Quantity',
-          value: item ? item.quantity : null
+          name: 'type',
+          placeholder: 'Type',
+          value: component ? component.type : null
+        },
+        {
+          name: 'socket',
+          placeholder: 'Socket',
+          value: component ? component.socket : null
         }
       ],
       buttons: [
@@ -43,12 +48,13 @@ export class InputDialogServiceProvider {
           handler: data => {
             console.log('Saved clicked', data);
             if (index !== undefined){
-              item.name = data.name;
-              item.quantity = data.quantity;
-              this.dataService.editItem(item, index);
+              component.name = data.name;
+              component.type = data.type;
+              component.socket = data.socket;
+              this.dataService.editComponent(component, index);
             }
             else{
-              this.dataService.addItem(data);
+              this.dataService.addComponent(data);
             }
           }
         }

@@ -12,10 +12,9 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable()
 export class PCBuildServiceProvider {
 
-  items = <any>[];
+  components = <any>[];
   dataChanged$: Observable<boolean>;
-  //baseURL = "http://localhost:8080";
-  baseURL = "https://marcel-groceries-app.herokuapp.com"
+  baseURL = "https://pc-builder-advisor.herokuapp.com"
   
   private dataChangedSubject: Subject<boolean>;
 
@@ -26,7 +25,7 @@ export class PCBuildServiceProvider {
     this.dataChanged$ = this.dataChangedSubject.asObservable();
   }
 
-  getItems(): Observable<object[]>{
+  getComponents(): Observable<object[]>{
     return this.http.get(this.baseURL + "/api/pccomponents").pipe(
       map(this.extractData),
       catchError(this.handleError)
@@ -47,24 +46,24 @@ export class PCBuildServiceProvider {
     return Observable.throw("Oops! Something went bad. See console message for details.");
   }
 
-  removeItem(id){
-    console.log("Removing Item - id = ", id);
+  removeComponent(id){
+    console.log("Removing Component - id = ", id);
     this.http.delete(this.baseURL + "/api/pccomponents/" + id).subscribe(res => {
-      this.items = res;
+      this.components = res;
       this.dataChangedSubject.next(true)
     });
   }
 
-  addItem(item){
-    this.http.post(this.baseURL + "/api/pccomponents/", item).subscribe(res => {
-      this.items = res;
+  addComponent(component){
+    this.http.post(this.baseURL + "/api/pccomponents/", component).subscribe(res => {
+      this.components = res;
       this.dataChangedSubject.next(true)
     });
   }
 
-  editItem(item, index){
-    this.http.put(this.baseURL + "/api/pccomponents/" + item._id, item).subscribe(res => {
-      this.items = res;
+  editComponent(component, index){
+    this.http.put(this.baseURL + "/api/pccomponents/" + component._id, component).subscribe(res => {
+      this.components = res;
       this.dataChangedSubject.next(true);
     })
   }
