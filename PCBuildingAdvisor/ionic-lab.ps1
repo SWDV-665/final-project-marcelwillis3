@@ -9,10 +9,10 @@ if ($PSVersionTable.PSVersion -lt "6.0" -or $IsWindows) {
 }
 $ret=0
 if (Test-Path "$basedir/node$exe") {
-  & "$basedir/node$exe"  "$basedir/node_modules/mime/cli.js" $args
+  & "$basedir/node$exe"  "$basedir/node_modules/@ionic/lab/bin/ionic-lab" $args
   $ret=$LASTEXITCODE
 } else {
-  & "node$exe"  "$basedir/node_modules/mime/cli.js" $args
+  & "node$exe"  "$basedir/node_modules/@ionic/lab/bin/ionic-lab" $args
   $ret=$LASTEXITCODE
 }
 exit $ret

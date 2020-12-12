@@ -1,17 +1,30 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>{{title}}</ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <h2>Welcome to the PC Building Advisor!</h2>
+  <p>Please select your components below to begin.</p>
+  <ion-item>
+    <ion-select placeholder="Select Motherboard">
+      <ion-option value="intel">Asus Z490</ion-option>
+      <ion-option value="amd">Asus X570</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select placeholder="Select CPU">
+      <ion-option value="intel">Intel Core i7-10700K</ion-option>
+      <ion-option value="amd">AMD RYZEN 7 3700X</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-select placeholder="Select GPU">
+      <ion-option value="nvidia">NVIDIA GeForce RTX 3080</ion-option>
+      <ion-option value="amd">AMD Radeon RX 6800</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-fab bottom left>
+    <button ion-button round>Analyze</button>
+  </ion-fab>
 </ion-content>
