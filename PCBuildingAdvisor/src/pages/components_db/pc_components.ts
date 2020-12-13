@@ -18,9 +18,12 @@ export class ComponentsPage {
               public toastCtrl: ToastController,
               public dataService: PCBuildServiceProvider,
               public inputDialogService: InputDialogServiceProvider) {
+            dataService.dataChanged$.subscribe((dataChanged: boolean) => {
+              this.loadComponents()
+            });
   }
 
-  ionViewDidEnter(){
+  ionViewDidLoad(){
     this.loadComponents();
   }
 

@@ -8,14 +8,16 @@
   <p>Please select your components below to begin.</p>
   <ion-item>
     <ion-select placeholder="Select Motherboard">
-      <ion-option value="intel">Asus Z490</ion-option>
-      <ion-option value="amd">Asus X570</ion-option>
+      <ng-container *ngFor="let component of components">
+        <ion-option *ngIf="component.type=='motherboard'">{{component.name}}</ion-option>
+      </ng-container>
     </ion-select>
   </ion-item>
   <ion-item>
     <ion-select placeholder="Select CPU">
-      <ion-option value="intel">Intel Core i7-10700K</ion-option>
-      <ion-option value="amd">AMD RYZEN 7 3700X</ion-option>
+      <ng-container *ngFor="let component of components">
+        <ion-option *ngIf="component.type=='cpu'">{{component.name}}</ion-option>
+      </ng-container>
     </ion-select>
   </ion-item>
   <ion-fab bottom left>

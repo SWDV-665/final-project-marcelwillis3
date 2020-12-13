@@ -6,8 +6,27 @@
 
 <ion-content padding>
   <ion-list>
+    <h1>Motherboards</h1>
     <ion-item-sliding *ngFor="let component of components; let i = index">
-      <ion-item>
+      <ion-item *ngIf="component.type=='motherboard'">
+        <h2>{{component.name}}</h2>
+        <p>{{component.type}}</p>
+        <p>{{component.socket}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button (click)="editComponent(component, i)" ion-button color="primary" ion-start>
+          <ion-icon name="create"></ion-icon>
+          Edit
+        </button>
+        <button (click)="removeComponent(component._id)" ion-button color="secondary" ion-start>
+          <ion-icon name="trash"></ion-icon>
+          Done
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+    <h1>CPUs</h1>
+    <ion-item-sliding *ngFor="let component of components; let i = index">
+      <ion-item *ngIf="component.type=='cpu'">
         <h2>{{component.name}}</h2>
         <p>{{component.type}}</p>
         <p>{{component.socket}}</p>
