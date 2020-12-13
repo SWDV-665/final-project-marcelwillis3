@@ -1,4 +1,11 @@
 page-db {
-    background: #333;
+    background: black;
     color: white;
+
+    h1{
+        color: map-get($colors, 'primarydark' )
+    }
+    h2{
+        color: map-get($colors, 'primary' )
+    }
 }
