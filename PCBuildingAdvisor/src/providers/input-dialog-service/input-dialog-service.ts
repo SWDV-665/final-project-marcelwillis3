@@ -57,6 +57,12 @@ export class InputDialogServiceProvider {
               this.dataService.addComponent(data);
             }
           }
+        },
+        {
+          text: 'OK',
+          handler: data => {
+            console.log('OK clicked', data);
+          }
         }
       ]
     });

@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PCBuildServiceProvider } from '../providers/pcbuilder-service/pcbuilder-service';
 import { InputDialogServiceProvider } from '../providers/input-dialog-service/input-dialog-service';
 import { HttpClientModule } from '@angular/common/http';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { HttpClientModule } from '@angular/common/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PCBuildServiceProvider,
-    InputDialogServiceProvider
+    InputDialogServiceProvider,
+    InAppBrowser
   ]
 })
 export class AppModule {}
