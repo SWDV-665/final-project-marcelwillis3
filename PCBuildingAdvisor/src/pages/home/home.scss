@@ -1,5 +1,12 @@
 page-home {
     h2{
-        color: map-get($colors, 'primarydark' )
+        color: map-get($colors, 'primary' )
+    }
+    ion-item{
+        width: 100%;
+    }
+    ion-select{
+        width: auto;
+        max-width: 100%;
     }
 }
